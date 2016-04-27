@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="travelling_1">#55acee</color>
+    <color name="travelling_2">#292f33</color>
+    <color name="travelling_3">#66757f</color>
+    <color name="travelling_4">#ccd6dd</color>
+    <color name="travelling_5">#e1e8ed</color>
+
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#ffffff</color>
+
+    <!-- Compose Fragment Dialog -->
+    <color name="negative_btn_text_color">#000000</color>
+    <color name="custom_actionbar_color">#55ACEE</color>
+    <color name="custom_actionbar_light_color">#82CAFA</color>
+    <color name="custom_actionbar_text_color">#ffffff</color>
+    <color name="custom_border_color">#ccd6dd</color>
+    <!-- End Dialog -->
+</resources>
