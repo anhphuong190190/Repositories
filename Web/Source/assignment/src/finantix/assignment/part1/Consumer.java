@@ -9,19 +9,23 @@ public class Consumer extends Thread {
 	 * the length of time to sleep in milliseconds
 	 */
 	private long delay;
+	private int index;
 
-	public Consumer(Inventory inventory, long delay) {
+	public Consumer(int index, Inventory inventory, long delay) {
 		this.inventory = inventory;
 		this.delay = delay;
+		this.index = index;
 	}
 
 	@Override
 	public void run() {
-		System.out.println("Consumer is starting...");
+		System.out.println("Consumer " + index + " is starting...");
 		while (inventory.getSize() >= 0) {
 			try {
-				inventory.getProducts().wait();
-				System.out.println(Arrays.toString(inventory.getProducts().toArray()));
+				if (inventory.getSize() > 0) {
+					System.out.println("Consumer " + index + " " + Arrays.toString(inventory.getProducts().toArray()));
+				}
+				Thread.sleep(delay);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

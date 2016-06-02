@@ -14,6 +14,7 @@ public class Inventory {
 		synchronized (product) {
 			products.add(product);
 			product.notifyAll();
+			System.out.println("-----Inventory is called notifyAll");
 		}
 	}
 
