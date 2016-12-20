@@ -1,4 +1,4 @@
-package com.finantix.epayment.config;
+package finantix.assignment.part4;
 
 /******************************************************************************
  *  Compilation:  javac KMP.java
