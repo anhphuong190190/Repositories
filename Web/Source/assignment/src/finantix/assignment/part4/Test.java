@@ -135,18 +135,5 @@ public class Test {
 		//
 		// System.out.println(search("sadasda", "da"));
 		searchSubString("sadasadas".toCharArray(), "ada".toCharArray());
-
-		// System.out.println("s".compareTo("p"));
-
-		Subject subject = new Subject();
-		Observer topic1 = new Subscribe("Topic 1", subject);
-		Observer topic2 = new Subscribe("Topic 2", subject);
-
-		System.out.println("First state change: START");
-		subject.setState("START");
-		System.out.println("Second state change: RUNNING");
-		subject.setState("RUNNING");
-		System.out.println("Last state change: STOP");
-		subject.setState("STOP");
 	}
 }

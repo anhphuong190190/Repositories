@@ -1,4 +1,4 @@
-package finantix.assignment.part4;
+package finantix.assignment.part5;
 
 public class Subscribe extends Observer {
 
