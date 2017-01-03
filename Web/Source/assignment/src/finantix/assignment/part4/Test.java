@@ -1,5 +1,7 @@
 package finantix.assignment.part4;
 
+import java.util.Arrays;
+
 public class Test {
 
 	public static String shiftByK(String value, Integer k) {
@@ -117,23 +119,82 @@ public class Test {
 		return count;
 	}
 
-	public static Integer[] bubble_sort(Integer values[]) {
-		return new Integer[1];
+	public static String longestPalindrome(String s) {
+	    if(s==null || s.length()<=1)
+	        return s;
+	 
+	    int len = s.length();
+	    int maxLen = 1;
+	    boolean [][] dp = new boolean[len][len];
+	 
+	    String longest = null;
+	    for(int l=0; l<s.length(); l++){
+	        for(int i=0; i<len-l; i++){
+	            int j = i+l;
+	            if(s.charAt(i)==s.charAt(j) && (j-i<=2||dp[i+1][j-1])){
+	                dp[i][j]=true;
+	 
+	                if(j-i+1>maxLen){
+	                   maxLen = j-i+1; 
+	                   longest = s.substring(i, j+1);
+	                }
+	            }
+	        }
+	    }
+	 
+	    return longest;
+	}
+	
+	public static String longestPalindrome2(String s) {
+		if (s.isEmpty()) {
+			return null;
+		}
+	 
+		if (s.length() == 1) {
+			return s;
+		}
+	 
+		String longest = s.substring(0, 1);
+		for (int i = 0; i < s.length(); i++) {
+			// get longest palindrome with center of i
+			String tmp = helper(s, i, i);
+			if (tmp.length() > longest.length()) {
+				longest = tmp;
+			}
+	 
+			// get longest palindrome with center of i, i+1
+			tmp = helper(s, i, i + 1);
+			if (tmp.length() > longest.length()) {
+				longest = tmp;
+			}
+		}
+	 
+		return longest;
+	}
+	 
+	// Given a center, either one letter or two letter, 
+	// Find longest palindrome
+	public static String helper(String s, int begin, int end) {
+		while (begin >= 0 && end <= s.length() - 1 && s.charAt(begin) == s.charAt(end)) {
+			begin--;
+			end++;
+		}
+		return s.substring(begin + 1, end);
 	}
 
 	public static void main(String[] args) {
-		// Object[][] testcases = { { "hlleo", 1, 3 }, { "ooneefspd", 0, 8 }, {
-		// "effort", 2, 4 } };
-		// for (int i = 0; i < testcases.length; i++) {
-		// System.out.println("Shift:" + shiftByK((String) testcases[i][0],
-		// (Integer) testcases[i][1]));
-		// System.out.println("Sort:" + sortByIndex((String) testcases[i][0],
-		// (Integer) testcases[i][1], (Integer) testcases[i][2]));
-		// }
-		// System.out.println(Arrays.toString(bubble_sort(new String[] { "B",
-		// "e", "d", "a", "c", "f", "s", "k", "g", "p", "h", "a", "s" })));
-		//
-		// System.out.println(search("sadasda", "da"));
+		Object[][] testcases = { { "hlleo", 1, 3 }, { "ooneefspd", 0, 8 }, { "effort", 2, 4 } };
+		for (int i = 0; i < testcases.length; i++) {
+			System.out.println("Shift:" + shiftByK((String) testcases[i][0], (Integer) testcases[i][1]));
+			System.out.println("Sort:"
+					+ sortByIndex((String) testcases[i][0], (Integer) testcases[i][1], (Integer) testcases[i][2]));
+		}
+		System.out.println(Arrays.toString(
+				bubble_sort(new String[] { "B", "e", "d", "a", "c", "f", "s", "k", "g", "p", "h", "a", "s" })));
+
+//		System.out.println(search("sadasda", "da"));
 		searchSubString("sadasadas".toCharArray(), "ada".toCharArray());
+		
+		System.out.println(longestPalindrome2("dabcba"));
 	}
 }
