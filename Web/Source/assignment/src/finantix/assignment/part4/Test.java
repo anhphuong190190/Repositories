@@ -1,9 +1,6 @@
 package finantix.assignment.part4;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test {
@@ -147,7 +144,7 @@ public class Test {
 	}
 
 	// 5.
-	public static String longestPalindrome(String s) {
+	public static String longestPalindromic(String s) {
 		if (s.isEmpty()) {
 			return null;
 		}
@@ -156,22 +153,21 @@ public class Test {
 		}
 		String longest = s.substring(0, 1);
 		for (int i = 0; i < s.length(); i++) {
-			// get longest palindrome with center of i
-			String tmp = helper(s, i, i);
+			// get longest palindromic with center of i
+			String tmp = palindromic(s, i, i);
 			if (tmp.length() > longest.length()) {
 				longest = tmp;
 			}
-			// get longest palindrome with center of i, i+1
-			tmp = helper(s, i, i + 1);
+			// get longest palindromic with center of i, i+1
+			tmp = palindromic(s, i, i + 1);
 			if (tmp.length() > longest.length()) {
 				longest = tmp;
 			}
 		}
-
 		return longest;
 	}
 
-	public static String helper(String s, int begin, int end) {
+	public static String palindromic(String s, int begin, int end) {
 		while (begin >= 0 && end <= s.length() - 1 && s.charAt(begin) == s.charAt(end)) {
 			begin--;
 			end++;
@@ -180,7 +176,7 @@ public class Test {
 	}
 
 	// 6.
-	public static String longestPalindrome2(String s) {
+	public static String longestPalindromic2(String s) {
 		if (s == null || s.length() <= 1)
 			return s;
 
@@ -236,6 +232,7 @@ public class Test {
 		searchSubString("saddaaadada".toCharArray(), "ada".toCharArray());
 		searchSubString("saddaaadada", "ada");
 		//
-		// System.out.println(longestPalindrome2("dabcba"));
+		 System.out.println(longestPalindromic("dabcba"));
+		 System.out.println(longestPalindromic2("dabcba"));
 	}
 }
