@@ -37,6 +37,7 @@ public class Test {
 		}
 		char[] sorted = value.toCharArray();
 		char temp;
+		// bubble_sort
 		for (int i = 0; i < sorted.length - 1; i++) {
 			for (int j = i + 1; j < sorted.length; j++) {
 				if (String.valueOf(sorted[i]).compareTo(String.valueOf(sorted[j])) > 0) {
@@ -50,6 +51,51 @@ public class Test {
 	}
 
 	// 3.
+	public static int searchSubString(String text, String search) {
+		int textLength = text.length();
+		int searchLength = search.length();
+		int[] temp = helper(search);
+		int i = 0;
+		int j = 0;
+		int count = 0;
+		while (i < textLength) {
+			while (j >= 0 && text.charAt(i) != search.charAt(j)) {
+				if (j == 0) {
+					j = -1;
+				} else {
+					j = 0;
+				}
+//				j = temp[j];
+			}
+			i++;
+			j++;
+			if (j == searchLength) {
+				count++; // fount at i - searchLength
+				System.out.println("found substring at index:" + (i - searchLength));
+				j = 0;
+//				j = temp[j];
+			}
+		}
+		return count;
+	}
+	private static int[] helper(String search) {
+		int searchLength = search.length();
+		int[] b = new int[searchLength + 1];
+		int i = 0;
+		int j = -1;
+		b[i] = j;
+		
+		while (i < searchLength) {
+			while (j >= 0 && search.charAt(i) != search.charAt(j)) {
+				j = b[j];
+			}
+			i++;
+			j++;
+			b[i] = j;
+		}
+		return b;
+	}
+
 	public static void searchSubString(char[] text, char[] ptrn) {
 		int ptrnLen = ptrn.length;
 		int txtLen = text.length;
@@ -167,11 +213,11 @@ public class Test {
 		// System.out.println(line);
 		// int N = Integer.parseInt(line);
 
-		Scanner s = new Scanner(System.in);
-		int N = s.nextInt();
-		int N2 = s.nextInt();
-		String search = s.next();
-		String text = s.next();
+		// Scanner s = new Scanner(System.in);
+		// int N = s.nextInt();
+		// int N2 = s.nextInt();
+		// String search = s.next();
+		// String text = s.next();
 
 		// Object[][] testcases = { { "hlleo", 1, 3 }, { "ooneefspd", 0, 8 }, {
 		// "effort", 2, 4 } };
@@ -187,7 +233,8 @@ public class Test {
 		// "g", "p", "h", "a", "s" })));
 		//
 		//// System.out.println(search("sadasda", "da"));
-		// searchSubString("sadasadas".toCharArray(), "ada".toCharArray());
+		searchSubString("saddaaadada".toCharArray(), "ada".toCharArray());
+		searchSubString("saddaaadada", "ada");
 		//
 		// System.out.println(longestPalindrome2("dabcba"));
 	}
