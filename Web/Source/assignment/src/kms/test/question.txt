@@ -1,0 +1,29 @@
+KMS interview:
+1. SQL
+Input:
+Department : DeptID, deptName
+Employee: EmpID, EmpName, DeptID, Salary
+Output: 
+- Liet ke tat ca nhung department va min, max, avg, total salary
+- Liet ke tat ca nhung employee co luong >= 1000 cua moi department
+
+2. Observer design pattern
+- WeatherStatus => publisher
+- Listener1 => subscriber from publisher
+- Listener2 => subscriber from publisher
+attach/detach
+
+3. Algorithms
+- Tim` tan` suat' xuat' hien cua char trong 1 string
+- replace nhung char co occurrences > 3
+Input : hello everyone
+Output: 
+h: 1
+e: 4
+l: 2
+o: 2
+v: 1
+r: 1
+y: 1
+n: 1
+Result: hllo vryon
