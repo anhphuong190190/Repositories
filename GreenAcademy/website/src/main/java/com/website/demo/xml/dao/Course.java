@@ -1,10 +1,14 @@
 package com.website.demo.xml.dao;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Course implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String courseName;
+	private Set<HomeWork> homeworks = new HashSet<HomeWork>();
 
 	public Course() {
 	}
@@ -27,5 +31,13 @@ public class Course implements java.io.Serializable {
 
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
+	}
+
+	public Set<HomeWork> getHomeworks() {
+		return homeworks;
+	}
+
+	public void setHomeworks(Set<HomeWork> homeworks) {
+		this.homeworks = homeworks;
 	}
 }

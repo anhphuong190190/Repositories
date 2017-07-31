@@ -40,7 +40,7 @@ public class Student implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "ID", unique = true, nullable = false)
+	@Column(name = "STUDENT_ID", unique = true, nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -87,7 +87,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "STUDENT_COURSE", joinColumns = { @JoinColumn(name = "ID") }, inverseJoinColumns = { @JoinColumn(name = "COURSE_ID") })
+	@JoinTable(name = "STUDENT_COURSE", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "COURSE_ID") })
 	public List<Course> getCourses() {
 		return courses;
 	}

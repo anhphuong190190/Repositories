@@ -2,10 +2,15 @@ package com.website.demo.annotation.dao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +20,7 @@ public class Course implements java.io.Serializable {
 
 	private Long id;
 	private String courseName;
+	private Set<HomeWork> homeworks = new HashSet<HomeWork>();
 
 	public Course() {
 	}
@@ -41,5 +47,14 @@ public class Course implements java.io.Serializable {
 
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "course")
+	public Set<HomeWork> getHomeworks() {
+		return homeworks;
+	}
+
+	public void setHomeworks(Set<HomeWork> homeworks) {
+		this.homeworks = homeworks;
 	}
 }

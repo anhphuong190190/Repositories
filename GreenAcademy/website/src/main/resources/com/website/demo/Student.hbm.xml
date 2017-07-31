@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.website.demo.xml.dao.Student" table="student"
+		catalog="website">
+		<id name="id" type="long">
+			<column name="STUDENT_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="firstName" type="string">
+			<column name="FIRST_NAME" length="20" not-null="true" />
+		</property>
+		<property name="lastName" type="string">
+			<column name="LAST_NAME" length="20" not-null="true" />
+		</property>
+		<property name="age" type="integer">
+			<column name="AGE" length="20" not-null="true" />
+		</property>
+		<one-to-one name="address" class="com.website.demo.xml.dao.Address"
+			cascade="save-update" lazy="false"></one-to-one>
+		<list name="courses" table="STUDENT_COURSE" cascade="all">
+			<key column="STUDENT_ID" />			
+			<list-index column="idx" />
+			<many-to-many column="COURSE_ID" class="com.website.demo.xml.dao.Course" />
+		</list>
+	</class>
+</hibernate-mapping>
