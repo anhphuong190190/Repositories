@@ -3,24 +3,30 @@
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/website</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">admin</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <!-- JDBC connection pool settings -->
-        <property name="connection_pool_size">10</property>
-        <!-- Echo the SQL -->
-        <property name="show_sql">true</property>
-        <!-- Create or Update the database schema on startup -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        
+	<session-factory>
+		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/website</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">admin</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- JDBC connection pool settings -->
+		<property name="connection_pool_size">10</property>
+		<!-- Echo the SQL -->
+		<property name="show_sql">true</property>
+		<!-- Create or Update the database schema on startup -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<!-- Using for annotation mapping -->
+		<!-- <mapping class="com.website.demo.annotation.dao.Student"></mapping> -->
+		<!-- <mapping class="com.website.demo.annotation.dao.Address"></mapping> -->
+		<!-- <mapping class="com.website.demo.annotation.dao.Course"></mapping> -->
+		<!-- <mapping class="com.website.demo.annotation.dao.HomeWork"></mapping> -->
+
 		<!-- Using for xml mapping -->
-        <mapping resource="com/website/demo/Student.hbm.xml"></mapping>
-        <mapping resource="com/website/demo/Address.hbm.xml"></mapping>
-        <mapping resource="com/website/demo/Course.hbm.xml"></mapping>
-        <mapping resource="com/website/demo/HomeWork.hbm.xml"></mapping>
-    </session-factory>
+		<mapping resource="com/website/demo/Student.hbm.xml"></mapping>
+		<mapping resource="com/website/demo/Address.hbm.xml"></mapping>
+		<mapping resource="com/website/demo/Course.hbm.xml"></mapping>
+		<mapping resource="com/website/demo/HomeWork.hbm.xml"></mapping>
+	</session-factory>
 </hibernate-configuration>
