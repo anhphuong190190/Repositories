@@ -17,10 +17,10 @@
         <!-- Create or Update the database schema on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
         
-        <!-- Using for annotation mapping -->
-        <mapping class="com.website.demo.annotation.dao.Student"></mapping>
-        <mapping class="com.website.demo.annotation.dao.Address"></mapping>
-        <mapping class="com.website.demo.annotation.dao.Course"></mapping>
-        <mapping class="com.website.demo.annotation.dao.HomeWork"></mapping>
+		<!-- Using for xml mapping -->
+        <mapping resource="com/website/demo/Student.hbm.xml"></mapping>
+        <mapping resource="com/website/demo/Address.hbm.xml"></mapping>
+        <mapping resource="com/website/demo/Course.hbm.xml"></mapping>
+        <mapping resource="com/website/demo/HomeWork.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>
