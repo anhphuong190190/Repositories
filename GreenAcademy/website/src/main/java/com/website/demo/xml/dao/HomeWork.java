@@ -47,4 +47,9 @@ public class HomeWork implements java.io.Serializable {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("{HomeWork_%s: %s - %s}", id, name, description);
+	}
 }

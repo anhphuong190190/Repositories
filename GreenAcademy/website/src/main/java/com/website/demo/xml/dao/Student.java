@@ -68,4 +68,9 @@ public class Student implements java.io.Serializable {
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("{Student_%s: %s - %s - %s}", id, firstName, lastName, age);
+	}
 }

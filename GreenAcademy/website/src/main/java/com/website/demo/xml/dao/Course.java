@@ -40,4 +40,9 @@ public class Course implements java.io.Serializable {
 	public void setHomeworks(Set<HomeWork> homeworks) {
 		this.homeworks = homeworks;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("{Course_%s: %s}", id, courseName);
+	}
 }

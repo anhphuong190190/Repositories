@@ -42,4 +42,9 @@ public class Address implements java.io.Serializable {
 	public void setCity(String city) {
 		this.city = city;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("{Address_%s: %s - %s - %s}", id, street, district, city);
+	}
 }
