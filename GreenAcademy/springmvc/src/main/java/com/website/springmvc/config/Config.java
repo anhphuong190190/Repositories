@@ -15,7 +15,8 @@ public class Config {
 	/**
 	 * Name of file property
 	 */
-	private static final String PROPERTY_FILE_NAME = "messages_en_US";
+	private static final String MESSAGES_EN = "messages_en";
+	private static final String MESSAGES_VN = "messages_vn";
 
 	private static final String UTF_8 = "UTF-8";
 
@@ -26,7 +27,7 @@ public class Config {
 	public MessageSource messageSource() {
 
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasenames(PROPERTY_FILE_NAME, "configure_en_US");
+		messageSource.setBasenames(MESSAGES_EN, MESSAGES_VN);
 		messageSource.setDefaultEncoding(UTF_8);
 		return messageSource;
 	}
