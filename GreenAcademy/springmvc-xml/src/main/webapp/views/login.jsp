@@ -9,22 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>
-		<spring:message code="login.label" />
-	</h2>
+	<h2>Login Page</h2>
 	<form action="login" method="post">
 		<div>
-<%-- 			<spring:message code="login.lblUserName" /> --%>
-			<input type="text" size="20" />
+			<input type="text" name="userName" size="20" />
 		</div>
 		<div>
-<%-- 			<spring:message code="login.lblPassword" /> --%>
-			<input type="password" size="20" />
+			<input type="password" name="password" size="20" />
 		</div>
 		<div>
-			<input type="submit" value=""/>
+			<input type="submit" value="Login" />
 		</div>
 	</form>
-	<a href="../login?userName=admin&password=admin">Click</a>
 </body>
 </html>
