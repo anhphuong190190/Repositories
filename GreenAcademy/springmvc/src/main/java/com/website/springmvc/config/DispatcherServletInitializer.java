@@ -10,30 +10,29 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  */
 public class DispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-    private static final String DISPATCH_OPTIONS_REQUEST = "dispatchOptionsRequest";
+	private static final String DISPATCH_OPTIONS_REQUEST = "dispatchOptionsRequest";
 
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
+	@Override
+	protected Class<?>[] getRootConfigClasses() {
 
-        return new Class<?>[] { SpringWebConfig.class };
-    }
+		return new Class<?>[] { SpringWebConfig.class };
+	}
 
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
+	@Override
+	protected Class<?>[] getServletConfigClasses() {
 
-        return new Class<?>[] { };
-    }
+		return new Class<?>[] {};
+	}
 
-    @Override
-    protected String[] getServletMappings() {
+	@Override
+	protected String[] getServletMappings() {
 
-        return new String[] { "/" };
-    }
+		return new String[] { "/" };
+	}
 
-    @Override
-    protected void customizeRegistration(Dynamic registration) {
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
 
-        registration.setInitParameter(DISPATCH_OPTIONS_REQUEST, Boolean.TRUE.toString());
-    }
-
+		registration.setInitParameter(DISPATCH_OPTIONS_REQUEST, Boolean.TRUE.toString());
+	}
 }

@@ -14,8 +14,8 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam String userName, @RequestParam String password) {
-		if ("pwd".equalsIgnoreCase(password))
-			return "redirect:/home";
+		if ("admin".equalsIgnoreCase(userName) && "admin".equalsIgnoreCase(password))
+			return "redirect:/home/" + userName;
 		return "login";
 	}
 }

@@ -1,4 +1,4 @@
-package com.website.demo.xml.persistence;
+package com.website.hibernate.xml.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

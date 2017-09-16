@@ -1,14 +1,14 @@
-package com.website.demo.xml.main;
+package com.website.hibernate.xml.main;
 
 import java.util.ArrayList;
 
 import org.hibernate.Session;
 
-import com.website.demo.xml.persistence.HibernateUtil;
-import com.website.demo.xml.dao.Address;
-import com.website.demo.xml.dao.Course;
-import com.website.demo.xml.dao.HomeWork;
-import com.website.demo.xml.dao.Student;
+import com.website.hibernate.xml.model.Address;
+import com.website.hibernate.xml.model.Course;
+import com.website.hibernate.xml.model.HomeWork;
+import com.website.hibernate.xml.model.Student;
+import com.website.hibernate.xml.persistence.HibernateUtil;
 
 public class Test {
 

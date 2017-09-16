@@ -1,4 +1,4 @@
-package com.website.demo.xml.dao;
+package com.website.hibernate.xml.model;
 
 public class Address implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;

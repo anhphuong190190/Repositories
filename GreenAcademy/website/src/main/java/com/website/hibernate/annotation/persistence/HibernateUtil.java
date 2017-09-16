@@ -1,4 +1,4 @@
-package com.website.demo.annotation.persistence;
+package com.website.hibernate.annotation.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;

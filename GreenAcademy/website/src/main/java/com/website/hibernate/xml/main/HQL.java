@@ -1,4 +1,4 @@
-package com.website.demo.xml.main;
+package com.website.hibernate.xml.main;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import com.website.demo.xml.dao.Student;
-import com.website.demo.xml.persistence.HibernateUtil;
+import com.website.hibernate.xml.model.Student;
+import com.website.hibernate.xml.persistence.HibernateUtil;
 
 public class HQL {
 

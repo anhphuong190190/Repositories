@@ -1,7 +1,24 @@
-package com.website.demo.xml.dao;
+package com.website.hibernate.annotation.entities;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "student", catalog = "website")
 public class Student implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,6 +38,9 @@ public class Student implements java.io.Serializable {
 		this.age = age;
 	}
 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "STUDENT_ID", unique = true, nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -29,6 +49,7 @@ public class Student implements java.io.Serializable {
 		this.id = id;
 	}
 
+	@Column(name = "FIRST_NAME", length = 20)
 	public String getFirstName() {
 		return firstName;
 	}
@@ -37,6 +58,7 @@ public class Student implements java.io.Serializable {
 		this.firstName = firstName;
 	}
 
+	@Column(name = "LAST_NAME", length = 20)
 	public String getLastName() {
 		return lastName;
 	}
@@ -45,6 +67,7 @@ public class Student implements java.io.Serializable {
 		this.lastName = lastName;
 	}
 
+	@Column(name = "AGE")
 	public Integer getAge() {
 		return age;
 	}
@@ -53,6 +76,8 @@ public class Student implements java.io.Serializable {
 		this.age = age;
 	}
 
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
 	public Address getAddress() {
 		return address;
 	}
@@ -61,16 +86,13 @@ public class Student implements java.io.Serializable {
 		this.address = address;
 	}
 
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "STUDENT_COURSE", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "COURSE_ID") })
 	public List<Course> getCourses() {
 		return courses;
 	}
 
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
-	}
-
-	@Override
-	public String toString() {
-		return String.format("{Student_%s: %s - %s - %s}", id, firstName, lastName, age);
 	}
 }

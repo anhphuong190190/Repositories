@@ -1,4 +1,4 @@
-package com.website.demo.annotation.main;
+package com.website.hibernate.annotation.main;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.website.demo.xml.persistence.HibernateUtil;
+import com.website.hibernate.xml.persistence.HibernateUtil;
 
 public class HQL {
 	public static void main(String[] args) {

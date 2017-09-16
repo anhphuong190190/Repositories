@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2><spring:message code="home.label" /></h2>
-	<spring:message code="home.lblwelcome" /> 
+	<h2>Home</h2>
+	Wellcome: ${name}
 </body>
 </html>

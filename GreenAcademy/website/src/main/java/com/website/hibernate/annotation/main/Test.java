@@ -1,14 +1,14 @@
-package com.website.demo.annotation.main;
+package com.website.hibernate.annotation.main;
 
 import java.util.ArrayList;
 
 import org.hibernate.Session;
 
-import com.website.demo.annotation.persistence.HibernateUtil;
-import com.website.demo.annotation.dao.Course;
-import com.website.demo.annotation.dao.HomeWork;
-import com.website.demo.annotation.dao.Address;
-import com.website.demo.annotation.dao.Student;
+import com.website.hibernate.annotation.entities.Address;
+import com.website.hibernate.annotation.entities.Course;
+import com.website.hibernate.annotation.entities.HomeWork;
+import com.website.hibernate.annotation.entities.Student;
+import com.website.hibernate.annotation.persistence.HibernateUtil;
 
 public class Test {
 
