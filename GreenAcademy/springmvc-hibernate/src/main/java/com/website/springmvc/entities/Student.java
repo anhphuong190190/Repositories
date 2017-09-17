@@ -1,4 +1,4 @@
-package com.website.demo.annotation.dao;
+package com.website.springmvc.entities;
 
 import static javax.persistence.GenerationType.IDENTITY;
 

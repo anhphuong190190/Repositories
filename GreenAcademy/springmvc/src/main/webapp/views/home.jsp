@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title><spring:message code="home.label" /></title>
 </head>
 <body>
-	<h2>Home</h2>
-	Wellcome: ${name}
+	<h2><spring:message code="home.label" /></h2>
+	<spring:message code="home.lblwelcome" />: ${name}
 </body>
 </html>

@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title><spring:message code="login.label" /></title>
 </head>
 <body>
-	<h2>Login Page</h2>
+	<h2><spring:message code="login.label" /></h2>
 	<form action="login" method="post">
 		<div>
 			<input type="text" name="userName" size="20" />

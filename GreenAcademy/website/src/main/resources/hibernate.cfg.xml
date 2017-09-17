@@ -18,15 +18,15 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 
 		<!-- Using for annotation mapping -->
-		<!-- <mapping class="com.website.hibernate.annotation.entities.Student"></mapping> -->
-		<!-- <mapping class="com.website.hibernate.annotation.entities.Address"></mapping> -->
-		<!-- <mapping class="com.website.hibernate.annotation.entities.Course"></mapping> -->
-		<!-- <mapping class="com.website.hibernate.annotation.entities.HomeWork"></mapping> -->
+		<mapping class="com.website.hibernate.annotation.entities.Student"></mapping>
+		<mapping class="com.website.hibernate.annotation.entities.Address"></mapping>
+		<mapping class="com.website.hibernate.annotation.entities.Course"></mapping>
+		<mapping class="com.website.hibernate.annotation.entities.HomeWork"></mapping>
 
 		<!-- Using for xml mapping -->
-		<mapping resource="com/website/hibernate/Student.hbm.xml"></mapping>
-		<mapping resource="com/website/hibernate/Address.hbm.xml"></mapping>
-		<mapping resource="com/website/hibernate/Course.hbm.xml"></mapping>
-		<mapping resource="com/website/hibernate/HomeWork.hbm.xml"></mapping>
+<!-- 		<mapping resource="com/website/hibernate/Student.hbm.xml"></mapping> -->
+<!-- 		<mapping resource="com/website/hibernate/Address.hbm.xml"></mapping> -->
+<!-- 		<mapping resource="com/website/hibernate/Course.hbm.xml"></mapping> -->
+<!-- 		<mapping resource="com/website/hibernate/HomeWork.hbm.xml"></mapping> -->
 	</session-factory>
 </hibernate-configuration>

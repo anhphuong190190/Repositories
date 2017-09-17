@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.website.demo.xml.dao.Course" table="course" catalog="website">
+    <class name="com.website.hibernate.xml.model.Course" table="course" catalog="website">
         <id name="id" type="long">
             <column name="COURSE_ID" />
             <generator class="identity" />
@@ -14,7 +14,7 @@
             <key>
                 <column name="COURSE_ID" not-null="true" />
             </key>
-            <one-to-many class="com.website.demo.xml.dao.HomeWork" />
+            <one-to-many class="com.website.hibernate.xml.model.HomeWork" />
         </set>
     </class>
 </hibernate-mapping>

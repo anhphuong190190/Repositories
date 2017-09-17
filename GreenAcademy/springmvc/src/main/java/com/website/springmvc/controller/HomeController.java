@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/home")
+@RequestMapping(value = "/views/home")
 public class HomeController {
 
-	@RequestMapping(value = "/views/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public ModelAndView printWelcome(@PathVariable("name") String name) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("home");
