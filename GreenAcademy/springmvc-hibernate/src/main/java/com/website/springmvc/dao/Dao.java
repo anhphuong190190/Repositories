@@ -10,6 +10,8 @@ public abstract class Dao<T> {
 	public abstract T add(T t);
 
 	public abstract Boolean update(T t);
-
+	
 	public abstract Boolean delete(T t);
+
+	public abstract Boolean delete(Long id);
 }

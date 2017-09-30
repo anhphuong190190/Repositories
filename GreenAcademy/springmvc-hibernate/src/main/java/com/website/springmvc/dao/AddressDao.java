@@ -2,38 +2,71 @@ package com.website.springmvc.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.website.springmvc.entities.Address;
 
+@Repository
 public class AddressDao extends Dao<Address> {
+
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	@Override
 	public List<Address> get() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = this.sessionFactory.getCurrentSession();
+		return session.createQuery("from Address").list();
 	}
 
 	@Override
 	public Address get(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = this.sessionFactory.getCurrentSession();
+		return (Address) session.get(Address.class, new Long(id));
 	}
 
 	@Override
-	public Address add(Address t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Address add(Address address) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.persist(address);
+		return address;
 	}
 
 	@Override
-	public Boolean update(Address t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean update(Address address) {
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			session.update(address);
+			return Boolean.TRUE;
+		} catch (Exception e) {
+			return Boolean.FALSE;
+		}
 	}
 
 	@Override
-	public Boolean delete(Address t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean delete(Address address) {
+		Session session = this.sessionFactory.getCurrentSession();
+		if (null != address) {
+			try {
+				session.delete(address);
+				return Boolean.TRUE;
+			} catch (Exception e) {
+				return Boolean.FALSE;
+			}
+		}
+		return Boolean.FALSE;
 	}
 
+	@Override
+	public Boolean delete(Long id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Address address = (Address) session.load(Address.class, new Long(id));
+		if (null != address) {
+			session.delete(address);
+			return Boolean.TRUE;
+		}
+		return Boolean.FALSE;
+	}
 }

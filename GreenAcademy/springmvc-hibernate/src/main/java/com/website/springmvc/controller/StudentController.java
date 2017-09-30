@@ -15,13 +15,13 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView getStudents() {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("home");
+	@RequestMapping(value = "/", method = RequestMethod.GET, headers = "Accept=application/json")
+	public ModelAndView getStudents(ModelAndView model) {
+		model.setViewName("student");
 		model.addObject("students", studentService.get());
 		return model;
 	}
+
 	@RequestMapping(value = "/addStudent", method = RequestMethod.GET)
 	public ModelAndView addStudent() {
 		ModelAndView model = new ModelAndView();
@@ -29,6 +29,7 @@ public class StudentController {
 		model.addObject("student", studentService.get());
 		return model;
 	}
+
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ModelAndView add() {
 		ModelAndView model = new ModelAndView();
@@ -36,6 +37,7 @@ public class StudentController {
 		model.addObject("student", studentService.get());
 		return model;
 	}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView get(@PathVariable("name") Long id) {
 		ModelAndView model = new ModelAndView();
@@ -43,6 +45,7 @@ public class StudentController {
 		model.addObject("student", studentService.get());
 		return model;
 	}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ModelAndView update(@PathVariable("name") Long id) {
 		ModelAndView model = new ModelAndView();
@@ -50,6 +53,7 @@ public class StudentController {
 		model.addObject("student", studentService.get());
 		return model;
 	}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ModelAndView delete(@PathVariable("name") Long id) {
 		ModelAndView model = new ModelAndView();

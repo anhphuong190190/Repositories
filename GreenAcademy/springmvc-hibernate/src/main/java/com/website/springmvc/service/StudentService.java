@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.website.springmvc.dao.Dao;
 import com.website.springmvc.entities.Student;
 
+@Transactional
 @Service
 public class StudentService {
 	@Autowired
@@ -31,5 +33,9 @@ public class StudentService {
 
 	public Boolean delete(Student student) {
 		return studentDao.delete(student);
+	}
+
+	public Boolean delete(Long id) {
+		return studentDao.delete(id);
 	}
 }
