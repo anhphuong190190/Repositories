@@ -16,7 +16,7 @@ public class HomeWorkDao extends Dao<HomeWork> {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public List<HomeWork> get() {
+	public List<HomeWork> getAll() {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.createQuery("from HomeWork").list();
 	}

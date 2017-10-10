@@ -2,6 +2,7 @@ package com.website.springmvc.entities;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -27,7 +28,7 @@ public class Student implements java.io.Serializable {
 	private String lastName;
 	private Integer age;
 	private Address address;
-	private List<Course> courses;
+	private List<Course> courses = new ArrayList<Course>();
 
 	public Student() {
 	}

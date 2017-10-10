@@ -15,8 +15,8 @@ public class StudentService {
 	@Autowired
 	Dao<Student> studentDao;
 
-	public List<Student> get() {
-		return studentDao.get();
+	public List<Student> getAll() {
+		return studentDao.getAll();
 	}
 
 	public Student get(Long id) {

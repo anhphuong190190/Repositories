@@ -16,7 +16,7 @@ public class AddressDao extends Dao<Address> {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public List<Address> get() {
+	public List<Address> getAll() {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.createQuery("from Address").list();
 	}

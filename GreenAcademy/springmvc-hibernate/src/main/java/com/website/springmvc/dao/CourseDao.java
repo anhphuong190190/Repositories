@@ -16,7 +16,7 @@ public class CourseDao extends Dao<Course> {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public List<Course> get() {
+	public List<Course> getAll() {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.createQuery("from Course").list();
 	}
