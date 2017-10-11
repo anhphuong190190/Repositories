@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="../resources/bootstrap.min.css">
-<script src="../resources/jquery.1.10.2.min.js"></script>
-<script src="../resources/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<script src="../resources/js/jquery.1.10.2.min.js"></script>
+<script src="../resources/js/bootstrap.min.js"></script>
 <title><spring:message code="login.label" /></title>
 </head>
 <body>

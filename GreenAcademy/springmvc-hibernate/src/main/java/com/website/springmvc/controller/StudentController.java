@@ -2,11 +2,11 @@ package com.website.springmvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.website.springmvc.entities.Student;
@@ -44,26 +44,23 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ModelAndView get(@PathVariable("name") Long id) {
+	public ModelAndView get(@PathVariable("id") Long id) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("student");
-		model.addObject("student", studentService.getAll());
+		model.setViewName("studentDetail");
+		model.addObject("student", studentService.get(id));
 		return model;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ModelAndView update(@PathVariable("name") Long id) {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("student");
-		model.addObject("student", studentService.getAll());
-		return model;
+	public String update(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("student", studentService.get(id));
+		return "redirect:/views/studentDetail/";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ModelAndView delete(@PathVariable("name") Long id) {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("student");
-		model.addObject("student", studentService.getAll());
+	public ModelAndView delete(@PathVariable("id") Long id, ModelAndView model) {
+		studentService.delete(id);
+		model.addObject("students", studentService.getAll());
 		return model;
 	}
 }
