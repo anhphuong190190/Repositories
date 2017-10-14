@@ -7,9 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
-<script src="../../resources/js/jquery.1.10.2.min.js"></script>
-<script src="../../resources/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
+<script type="text/javascript" src="<c:url value="/resources/js/jquery.1.10.2.min.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <title><spring:message code="student.detail.label" /></title>
 </head>
 <body>
@@ -25,45 +25,52 @@
 			<spring:message code="student.detail.city.plhd" var="city_plhd" />
 			
 			<form:form class="form-horizontal" action="./save" method="post" modelAttribute="student">
+				<form:input path="id" type="hidden" id="id" name="id"/>
 				<div class="form-group">
 					<label class="control-label col-sm-4" for="fName"><spring:message code="student.detail.fName" /></label>
 					<div class="col-sm-6">
-						<form:input path="firstName" type="text" class="form-control" id="fName" name="fName" placeholder="${fName_plhd}" />
+						<form:input path="firstName" type="text" class="form-control" id="fName" name="fName" placeholder="${fName_plhd}" readonly="${mode == 'VIEW'}"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-4" for="lName"><spring:message code="student.detail.lName" /></label>
 					<div class="col-sm-6">
-						<form:input path="lastName" type="text" class="form-control" id="lName" name="lName" placeholder="${lName_plhd}" />
+						<form:input path="lastName" type="text" class="form-control" id="lName" name="lName" placeholder="${lName_plhd}" readonly="${mode == 'VIEW'}"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-4" for="age"><spring:message code="student.detail.age" /></label>
 					<div class="col-sm-6">
-						<form:input path="age" type="text" class="form-control" id="age" name="age" placeholder="${age_plhd}" />
+						<form:input path="age" type="text" class="form-control" id="age" name="age" placeholder="${age_plhd}" readonly="${mode == 'VIEW'}"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-4" for="street"><spring:message code="student.detail.street" /></label>
 					<div class="col-sm-6">
-						<form:input path="address.street" type="text" class="form-control" id="street" name="street" placeholder="${street_plhd}" />
+						<form:input path="address.street" type="text" class="form-control" id="street" name="street" placeholder="${street_plhd}" readonly="${mode == 'VIEW'}"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-4" for="district"><spring:message code="student.detail.district" /></label>
 					<div class="col-sm-6">
-						<form:input path="address.district" type="text" class="form-control" id="district" name="district" placeholder="${district_plhd}" />
+						<form:input path="address.district" type="text" class="form-control" id="district" name="district" placeholder="${district_plhd}" readonly="${mode == 'VIEW'}"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-4" for="city"><spring:message code="student.detail.city" /></label>
 					<div class="col-sm-6">
-						<form:input path="address.city" type="text" class="form-control" id="city" name="city" placeholder="${city_plhd}" />
+						<form:input path="address.city" type="text" class="form-control" id="city" name="city" placeholder="${city_plhd}" readonly="${mode == 'VIEW'}"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-4 col-sm-6">
-						<button type="submit" class="btn btn-primary"><spring:message code="student.detail.btn.save" /></button>
+						<c:if test = "${mode == 'VIEW'}">
+							<button disabled="disabled" type="submit" class="btn btn-primary"><spring:message code="student.detail.btn.save" /></button>
+						</c:if>
+						<c:if test = "${mode != 'VIEW'}">
+							<button type="submit" class="btn btn-primary"><spring:message code="student.detail.btn.save" /></button>
+						</c:if>
+						<button type="button" onclick="location.href='./'" class="btn btn-default"><spring:message code="student.detail.btn.cancel" /></button>
 					</div>
 				</div>
 			</form:form>

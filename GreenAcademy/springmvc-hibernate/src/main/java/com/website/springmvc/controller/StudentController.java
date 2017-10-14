@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.website.springmvc.entities.Student;
@@ -25,9 +26,8 @@ public class StudentController {
 		return model;
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public ModelAndView add() {
-		ModelAndView model = new ModelAndView();
+	@RequestMapping(value = "/addStudent", method = RequestMethod.GET)
+	public ModelAndView addStudent(ModelAndView model) {
 		model.setViewName("studentDetail");
 		model.addObject("student", new Student());
 		return model;
@@ -35,32 +35,25 @@ public class StudentController {
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute("student") Student student) {
-		Student result = studentService.add(student);
-		if (result != null) {
-			return "redirect:/views/student/";
+		if (student.getId() == null) {
+			studentService.add(student);
 		} else {
-			return "studentDetail";
+			studentService.update(student);
 		}
+		return "redirect:/views/student/";
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ModelAndView get(@PathVariable("id") Long id) {
-		ModelAndView model = new ModelAndView();
+	@RequestMapping(value = "/getStudent", method = RequestMethod.GET)
+	public ModelAndView getStudent(@RequestParam("id") Long id, @RequestParam("mode") String mode, ModelAndView model) {
 		model.setViewName("studentDetail");
 		model.addObject("student", studentService.get(id));
+		model.addObject("mode", mode);
 		return model;
-	}
-
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public String update(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("student", studentService.get(id));
-		return "redirect:/views/studentDetail/";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ModelAndView delete(@PathVariable("id") Long id, ModelAndView model) {
 		studentService.delete(id);
-		model.addObject("students", studentService.getAll());
 		return model;
 	}
 }
