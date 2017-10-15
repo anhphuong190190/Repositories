@@ -31,7 +31,7 @@ public class StudentDao extends Dao<Student> {
 	@Override
 	public Student add(Student student) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(student);
+		session.save(student);
 		return student;
 	}
 

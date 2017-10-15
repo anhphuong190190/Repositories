@@ -77,7 +77,7 @@ public class Student implements java.io.Serializable {
 		this.age = age;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@PrimaryKeyJoinColumn
 	public Address getAddress() {
 		return address;
@@ -87,8 +87,9 @@ public class Student implements java.io.Serializable {
 		this.address = address;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "STUDENT_COURSE", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "COURSE_ID") })
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "STUDENT_COURSE", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "COURSE_ID") })
 	public List<Course> getCourses() {
 		return courses;
 	}

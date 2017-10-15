@@ -38,9 +38,7 @@ function getStudent(id, mode) {
 function deleteStudent(id) {
 	var r = confirm("Do you want to delete this student?");
 	if (r == true) {
-		sendDeleteRequest('./' + id, function(result) {
-			location.href='./';
-		});
+		sendDeleteRequest('./' + id, null);
 		location.href='./';
 	}	
 };

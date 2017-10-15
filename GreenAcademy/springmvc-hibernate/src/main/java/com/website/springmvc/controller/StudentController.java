@@ -2,7 +2,6 @@ package com.website.springmvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,8 +51,7 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ModelAndView delete(@PathVariable("id") Long id, ModelAndView model) {
+	public void delete(@PathVariable("id") Long id) {
 		studentService.delete(id);
-		return model;
 	}
 }

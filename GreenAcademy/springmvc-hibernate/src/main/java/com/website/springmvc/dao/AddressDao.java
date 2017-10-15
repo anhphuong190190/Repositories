@@ -30,7 +30,7 @@ public class AddressDao extends Dao<Address> {
 	@Override
 	public Address add(Address address) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(address);
+		session.save(address);
 		return address;
 	}
 

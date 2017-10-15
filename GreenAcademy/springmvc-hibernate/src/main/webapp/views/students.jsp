@@ -19,15 +19,15 @@
 		</div>
 		<div class="panel-body">
 			<table class="table table-striped">
-					<thead>
-						<tr>
-							<th><spring:message code="student.table.id" /></th>
-							<th><spring:message code="student.table.name" /></th>
-							<th><spring:message code="student.table.age" /></th>
-							<th><spring:message code="student.table.address" /></th>
-							<th><spring:message code="student.table.action" /></th>
-						</tr>
-					<thead>
+				<thead>
+					<tr>
+						<th><spring:message code="student.table.id" /></th>
+						<th><spring:message code="student.table.name" /></th>
+						<th><spring:message code="student.table.age" /></th>
+						<th><spring:message code="student.table.address" /></th>
+						<th><spring:message code="student.table.action" /></th>
+					</tr>
+				<thead>
 				<c:choose>
 	  				<c:when test="${!empty students}">
 						<c:forEach items="${students}" var="student">
