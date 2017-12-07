@@ -37,9 +37,15 @@
 								<td>${student.age}</td>
 								<td>${student.address.street}, ${student.address.district}, ${student.address.city}</td>
 								<td>
-									<button class="btn btn-info" onclick="getStudent(${student.id}, 'VIEW');"><spring:message code="student.btn.view" /></button>
-									<button class="btn btn-primary" onclick="getStudent(${student.id}, 'EDIT');"><spring:message code="student.btn.edit" /></button>
-									<button class="btn btn-danger" onclick="deleteStudent(${student.id});"><spring:message code="student.btn.delete" /></button>
+									<button class="btn btn-info" onclick="getStudent(${student.id}, 'VIEW');">
+										<spring:message code="student.btn.view" />
+									</button>
+									<button class="btn btn-primary" onclick="getStudent(${student.id}, 'EDIT');">
+										<spring:message code="student.btn.edit" />
+									</button>
+									<button class="btn btn-danger" onclick="deleteStudent(${student.id});">
+										<spring:message code="student.btn.delete" />
+									</button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -52,7 +58,9 @@
 				</c:choose>
 				<tr>
 					<th colspan="5">
-						<button onclick="location.href='addStudent'" class="btn btn-primary"><spring:message code="student.btn.add" /></button>
+						<button onclick="location.href='addStudent'" class="btn btn-primary">
+							<spring:message code="student.btn.add" />
+						</button>
 					</th>
 				</tr>
 			</table>
