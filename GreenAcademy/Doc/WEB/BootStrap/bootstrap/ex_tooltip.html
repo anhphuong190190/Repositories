@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+     <script src="js/jquery.min.js"></script>
+     <script src="js/bootstrap.min.js"></script> 
+
+     <script>
+	    $(document).ready(function() {
+	    	$('#mytip').tooltip();
+	    });
+	</script>
+	<style type="text/css">
+	.tooltip
+	{
+        font-size: 15px;
+	}
+	</style>
+	
+</head>
+<body>
+	<div class="container" style="margin-top:50px">
+		<div class="row">
+		<a href="#" data-toggle="tooltip" title="Hello, this is my Tooltip"  id="mytip">Hover over me</a>
+		</div>
+	</div>
+</body>
+</html>

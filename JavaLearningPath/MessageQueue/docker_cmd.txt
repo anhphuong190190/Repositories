@@ -9,3 +9,7 @@ docker logs <name> // show log
 docker ps -a //list container
 docker rm -f <containerID> // force remove container
 docker rmi -f Image <imageid> //force remove image
+
+
+netstat -ano | findstr :<port>
+taskkill /PID <PID> /F

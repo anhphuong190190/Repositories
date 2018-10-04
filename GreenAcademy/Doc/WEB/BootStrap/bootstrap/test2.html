@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+        function txtTen_onkeypress() {
+        	//alert("abc");
+        	//alert(window.event.keyCode);
+ 		if (48 <= window.event.keyCode && window.event.keyCode <= 57)
+ 		//nếu phím là số thì bỏ đi
+ 			//window.event.keyCode = 0
+ 			return false;
+ 		}
+	</script>
+   
+	
+</head>
+<body>
+	<input type="text" name="txt" onkeypress="return txtTen_onkeypress()"/>
+</body>
+</html>
